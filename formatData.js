@@ -10,7 +10,7 @@ let getTitle = (val,index)=>{
       index+=1;
     }else{
       title+=val[index];
-      return title.replace("**\n", "").trim();
+      return {title:title.replace("**\n", "").trim(),index:index};
     }
   }
  return ""
@@ -36,12 +36,14 @@ for (let i = 0; i < rawData.length; i++) {
 
     // Start a new slide
     //let titleMatch = text.match(/\*\*Slide (\d+:.+?)\*\*/);
+    let returnObj = getTitle(rawData,i+1);
+    i = returnObj.index;
     currentSlide = {
-      title: getTitle(rawData,i+1),
+      title: returnObj.title,
       content: []
     };
     currentContent = [];
-  } else if (text.startsWith("*")) {
+  } else {//if (text.startsWith("*")) {
     // Add content line, removing the leading '*' for bullet points
     //currentContent.push(text.replace("*", "").trim());
     let str = ""
