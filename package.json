@@ -1,0 +1,17 @@
+{
+  "name": "my-replicate-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A starter for testing out Replicate's API",
+  "main": "formatData.js",
+  "type": "module",
+  "scripts": {
+    "start": "node formatData.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "node-fetch": "^3.3.2",
+    "pptxgenjs": "^3.12.0",
+    "replicate": "*"
+  }
+}
